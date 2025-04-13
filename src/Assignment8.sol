@@ -12,7 +12,7 @@ contract Assignment8 is ERC721URIStorage, Ownable {
     uint256 private _tokenIdCounter;
 
     // pass name and symbol of the nft token collection
-    constructor() ERC721("AssignmentToken", "ATK") {
+    constructor() ERC721("AssignmentToken", "ATK") Ownable(msg.sender) {
         // initialize the token id counter to 0
         _tokenIdCounter = 0;
     }
