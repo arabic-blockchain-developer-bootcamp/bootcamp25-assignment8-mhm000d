@@ -12,7 +12,7 @@ contract Assignment8 is ERC721URIStorage, Ownable {
     uint256 private _tokenIdCounter;
 
     // pass name and symbol of the nft token collection
-    constructor() ERC721("AssignmentToken", "ATK") Ownable(msg.sender) {
+    constructor() ERC721("AssignmentToken", "ATK") {
         // initialize the token id counter to 0
         _tokenIdCounter = 0;
     }
@@ -22,7 +22,7 @@ contract Assignment8 is ERC721URIStorage, Ownable {
     // restrict this function to be called only by the owner
         // Hint: You can use OpenZeppelin Ownable contract imported above
     
-    function mintNFT(string memory tokenURI) external onlyOwner {
+    function mintNFT(string memory tokenURI) public onlyOwner {
         // call _mint to mint a new nft to the function caller
         _mint(msg.sender, _tokenIdCounter);
         // set token uri to the token id using _setTokenURI
